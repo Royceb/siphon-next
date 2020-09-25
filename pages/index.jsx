@@ -1,44 +1,46 @@
-import React from 'react';
-import { useCurrentUser } from '../lib/hooks';
-import PostEditor from '../components/post/editor';
-import Posts from '../components/post/posts';
+import React from "react";
 
-const IndexPage = () => {
-  const [user] = useCurrentUser();
+import Header from "../components/partials/Header";
+import PageIllustration from "../components/partials/PageIllustration";
+import HeroHome from "../components/partials/HeroHome";
+import Process from "../components/partials/Process";
+import FeaturesHome from "../components/partials/FeaturesHome";
+import Tabs from "../components/partials/Tabs";
+import Target from "../components/partials/Target";
+import News from "../components/partials/News";
+import Newsletter from "../components/partials/Newsletter";
+import Footer from "../components/partials/Footer";
 
+function IndexPage() {
   return (
-    <>
-      <style jsx>
-        {`
-          p {
-            text-align: center;
-            color: #888;
-          }
-          h3 {
-            color: #555;
-          }
-        `}
-      </style>
-      <div style={{ marginBottom: '2rem' }}>
-        <h2>
-          Hello,
-          {' '}
-          {user ? user.name : 'stranger'}
-          !
-        </h2>
-        <p>Have a wonderful day.</p>
-      </div>
-      <div>
-        <h3>
-          All posts from the Web
-          {' '}
-          <span role="img" aria-label="Earth">🌎</span>
-        </h3>
-        <PostEditor />
-        <Posts />
-      </div>
-    </>
+    <div className="flex flex-col min-h-screen overflow-hidden">
+      {/*  Site header */}
+      <Header />
+
+      {/*  Page content */}
+      <main className="flex-grow">
+        {/*  Page illustration */}
+        <div
+          className="relative max-w-6xl mx-auto h-0 pointer-events-none"
+          aria-hidden="true"
+        >
+          <PageIllustration />
+        </div>
+
+        {/*  Page sections */}
+        <HeroHome />
+        <Process />
+        <FeaturesHome />
+        <Tabs />
+        <Target />
+        <News />
+        <Newsletter />
+      </main>
+
+      {/*  Site footer */}
+      <Footer />
+    </div>
   );
-};
+}
 
 export default IndexPage;
