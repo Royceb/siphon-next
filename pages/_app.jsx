@@ -14,7 +14,7 @@ export default function MyApp({ Component, pageProps }) {
         easing: "ease-out-sine",
       });
     }
-  }, []);
+  });
 
   return (
     <Layout>
