@@ -4,7 +4,7 @@ import Link from "next/link";
 import Header from "../components/partials/Header";
 import PageIllustration from "../components/partials/PageIllustration";
 
-function SignUp() {
+function SignIn() {
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
       {/*  Site header */}
@@ -26,7 +26,7 @@ function SignUp() {
               {/* Page header */}
               <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
                 <h1 className="h1">
-                  Welcome. We exist to make entrepreneurism easier.
+                  Welcome back. We exist to make entrepreneurism easier.
                 </h1>
               </div>
 
@@ -48,7 +48,7 @@ function SignUp() {
                           aria-hidden="true"
                         ></span>
                         <span className="flex-auto pl-16 pr-8 -ml-16">
-                          Sign up with Google
+                          Sign in with Google
                         </span>
                       </button>
                     </div>
@@ -60,7 +60,7 @@ function SignUp() {
                     aria-hidden="true"
                   ></div>
                   <div className="text-gray-400">
-                    Or, register with your email
+                    Or, sign in with your email
                   </div>
                   <div
                     className="border-t border-gray-700 border-dotted flex-grow ml-3"
@@ -72,43 +72,9 @@ function SignUp() {
                     <div className="w-full px-3">
                       <label
                         className="block text-gray-300 text-sm font-medium mb-1"
-                        htmlFor="full-name"
-                      >
-                        Full Name <span className="text-red-600">*</span>
-                      </label>
-                      <input
-                        id="full-name"
-                        type="text"
-                        className="form-input w-full text-gray-300"
-                        placeholder="First and last name"
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div className="flex flex-wrap -mx-3 mb-4">
-                    <div className="w-full px-3">
-                      <label
-                        className="block text-gray-300 text-sm font-medium mb-1"
-                        htmlFor="company-name"
-                      >
-                        Company Name <span className="text-red-600">*</span>
-                      </label>
-                      <input
-                        id="company-name"
-                        type="text"
-                        className="form-input w-full text-gray-300"
-                        placeholder="Your company or app name"
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div className="flex flex-wrap -mx-3 mb-4">
-                    <div className="w-full px-3">
-                      <label
-                        className="block text-gray-300 text-sm font-medium mb-1"
                         htmlFor="email"
                       >
-                        Work Email <span className="text-red-600">*</span>
+                        Email
                       </label>
                       <input
                         id="email"
@@ -125,7 +91,7 @@ function SignUp() {
                         className="block text-gray-300 text-sm font-medium mb-1"
                         htmlFor="password"
                       >
-                        Password <span className="text-red-600">*</span>
+                        Password
                       </label>
                       <input
                         id="password"
@@ -136,32 +102,39 @@ function SignUp() {
                       />
                     </div>
                   </div>
-                  <div className="text-sm text-gray-500 text-center">
-                    I agree to be contacted by Open PRO about this offer as per
-                    the Open PRO{" "}
-                    <Link
-                      href="#"
-                      className="underline text-gray-400 hover:text-gray-200 hover:no-underline transition duration-150 ease-in-out"
-                    >
-                      Privacy Policy
-                    </Link>
-                    .
+                  <div className="flex flex-wrap -mx-3 mb-4">
+                    <div className="w-full px-3">
+                      <div className="flex justify-between">
+                        <label className="flex items-center">
+                          <input type="checkbox" className="form-checkbox" />
+                          <span className="text-gray-400 ml-2">
+                            Keep me signed in
+                          </span>
+                        </label>
+                        <Link
+                          href="/reset-password"
+                          className="text-purple-600 hover:text-gray-200 transition duration-150 ease-in-out"
+                        >
+                          Forgot Password?
+                        </Link>
+                      </div>
+                    </div>
                   </div>
                   <div className="flex flex-wrap -mx-3 mt-6">
                     <div className="w-full px-3">
                       <button className="btn text-white bg-purple-600 hover:bg-purple-700 w-full">
-                        Sign up
+                        Sign in
                       </button>
                     </div>
                   </div>
                 </form>
                 <div className="text-gray-400 text-center mt-6">
-                  Already using Open PRO?{" "}
+                  Don’t you have an account?{" "}
                   <Link
-                    href="signin"
+                    href="/signup"
                     className="text-purple-600 hover:text-gray-200 transition duration-150 ease-in-out"
                   >
-                    Sign in
+                    Sign up
                   </Link>
                 </div>
               </div>
@@ -173,4 +146,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default SignIn;
