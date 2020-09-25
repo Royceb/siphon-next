@@ -6,13 +6,15 @@ import AOS from "aos";
 
 export default function MyApp({ Component, pageProps }) {
   useEffect(() => {
-    // AOS.init({
-    //   once: true,
-    //   disable: "phone",
-    //   duration: 600,
-    //   easing: "ease-out-sine",
-    // });
-  });
+    if (window) {
+      AOS.init({
+        once: true,
+        disable: "phone",
+        duration: 600,
+        easing: "ease-out-sine",
+      });
+    }
+  }, []);
 
   return (
     <Layout>
