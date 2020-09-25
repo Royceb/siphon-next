@@ -1,20 +1,8 @@
-import React, { useEffect } from "react";
-import Head from "next/head";
-import Layout from "../components/layout";
-import AOS from "aos";
-
-import "../styles/style.scss";
+import React from 'react';
+import Head from 'next/head';
+import Layout from '../components/layout';
 
 export default function MyApp({ Component, pageProps }) {
-  useEffect(() => {
-    AOS.init({
-      once: true,
-      disable: "phone",
-      duration: 600,
-      easing: "ease-out-sine",
-    });
-  });
-
   return (
     <Layout>
       <Head>

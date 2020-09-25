@@ -1,7 +1,6 @@
-require("dotenv").config();
-const withPlugins = require("next-compose-plugins");
+require('dotenv').config();
 
-module.exports = withPlugins([], {
+module.exports = {
   env: {
     MONGODB_URI: process.env.MONGODB_URI,
     CLOUDINARY_URL: process.env.CLOUDINARY_URL,
@@ -11,4 +10,4 @@ module.exports = withPlugins([], {
     EMAIL_FROM: process.env.EMAIL_FROM,
     SESSION_SECRET: process.env.SESSION_SECRET,
   },
-});
+};

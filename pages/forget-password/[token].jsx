@@ -1,8 +1,8 @@
-import React from "react";
-import Head from "next/head";
-import nextConnect from "next-connect";
-import Router from "next/router";
-import database from "../../middlewares/database";
+import React from 'react';
+import Head from 'next/head';
+import nextConnect from 'next-connect';
+import Router from 'next/router';
+import database from '../../middlewares/database';
 
 const ResetPasswordTokenPage = ({ valid, token }) => {
   async function handleSubmit(event) {
@@ -12,13 +12,13 @@ const ResetPasswordTokenPage = ({ valid, token }) => {
       token,
     };
 
-    const res = await fetch("/api/user/password/reset", {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
+    const res = await fetch('/api/user/password/reset', {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
     });
 
-    if (res.status === 200) Router.replace("/");
+    if (res.status === 200) Router.replace('/');
   }
 
   return (
@@ -26,6 +26,13 @@ const ResetPasswordTokenPage = ({ valid, token }) => {
       <Head>
         <title>Forget password</title>
       </Head>
+      <style jsx>
+        {`
+        p {
+          text-align: center;
+        }
+      `}
+      </style>
       <h2>Forget password</h2>
       {valid ? (
         <>
@@ -54,9 +61,9 @@ export async function getServerSideProps(ctx) {
   await handler.apply(ctx.req, ctx.res);
   const { token } = ctx.query;
 
-  const tokenDoc = await ctx.req.db.collection("tokens").findOne({
+  const tokenDoc = await ctx.req.db.collection('tokens').findOne({
     token: ctx.query.token,
-    type: "passwordReset",
+    type: 'passwordReset',
   });
 
   return { props: { token, valid: !!tokenDoc } };
